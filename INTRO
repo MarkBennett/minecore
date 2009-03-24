@@ -1,0 +1,7 @@
+MineCore is a SproutCore port of the classic mine sweeper game.
+
+As with classic mine sweeper the game starts with a map (n x m in size) made up of blank cells.  The user interacts with the game by selecting a cell which reveals the cells contents.  A cell either contains a mine, in which case the game is over and the player loses, or doesn't in which case they may continue playing.
+
+Cells adjacent to cells containing mines will display a count of the adjacent mines when their content is revealed.  If no mines are adjacent then they trigger the cells around them to reveal their contents.
+
+A player wins the game by revealing all of the mines.
