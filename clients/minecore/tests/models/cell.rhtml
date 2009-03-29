@@ -12,7 +12,7 @@ Test.context("Minecore.Cell",{
 
     // Create a new cell with an unrevealed mine
     cell = Minecore.Cell.create( {
-      'content':'mine',
+      'hasMine':true,
       'isRevealed':false,
       'isFlagged':false,
     });
@@ -31,7 +31,7 @@ Test.context("Minecore.Cell",{
 
     // Create a new empty cell
     cell = Minecore.Cell.create({
-        'content':'empty',
+        'hasMine':false,
         'isRevealed':false,
         'isFlagged':false,
     });
@@ -50,7 +50,7 @@ Test.context("Minecore.Cell",{
 
     // Create a new empty cell
     cell = Minecore.Cell.create({
-        'content':'empty',
+        'hasMine':false,
         'isRevealed':false,
         'isFlagged':false,
     });
@@ -70,7 +70,7 @@ Test.context("Minecore.Cell",{
 
     // Create a new cell with a mine
     cell = Minecore.Cell.create({
-        'content':'mine',
+        'hasMine':true,
         'isRevealed':false,
         'isFlagged':false,
     });
