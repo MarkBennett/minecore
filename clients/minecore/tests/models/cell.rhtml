@@ -1,0 +1,99 @@
+<% # ========================================================================
+   # Minecore.Cell Unit Test
+   # ========================================================================
+%>
+<% content_for('final') do %>
+
+<script>
+
+Test.context("Minecore.Cell",{
+
+  "Mines explode when revealed": function() {
+
+    // Create a new cell with an unrevealed mine
+    cell = Minecore.Cell.create( {
+      'content':'mine',
+      'isRevealed':false,
+      'isFlagged':false,
+    });
+
+    // Make sure the cell hasn't exploded
+    cell.get('isExploded').shouldEqual(false);
+
+    // Reveal the cell
+    cell.set('isRevealed', true);
+
+    // Make sure the mine has exploded
+    cell.get('isExploded').shouldEqual(true);
+  },
+
+  "Emply cells don't explode when revealed": function() {
+
+    // Create a new empty cell
+    cell = Minecore.Cell.create({
+        'content':'empty',
+        'isRevealed':false,
+        'isFlagged':false,
+    });
+
+    // Make sure the cell hasn't exploded
+    cell.get('isExploded').shouldEqual(false);
+
+    // Reveal the contents of the cell
+    cell.set('isRevealed', true);
+
+    // Make sure the empty cell didn't explode
+    cell.get('isExploded').shouldEqual(false);
+  },
+
+  "Revealing an empty cell marks it as solved": function() {
+
+    // Create a new empty cell
+    cell = Minecore.Cell.create({
+        'content':'empty',
+        'isRevealed':false,
+        'isFlagged':false,
+    });
+
+    // Make sure the cell isn't solved yet
+    cell.get('isSolved').shouldEqual(false);
+
+    // Reveal the cell
+    cell.set('isRevealed', YES);
+
+    // Make sure the cell is now solved
+    cell.get('isSolved').shouldEqual(true);
+
+  },
+
+  "Flagging a mine marks it as solved": function() {
+
+    // Create a new cell with a mine
+    cell = Minecore.Cell.create({
+        'content':'mine',
+        'isRevealed':false,
+        'isFlagged':false,
+    });
+
+    // Make sure an unflagged mine isn't solved
+    cell.get('isSolved').shouldEqual(false);
+
+    // Flag the mine
+    cell.set('isFlagged', true);
+
+    // Make sure the flagged cell is solved
+    cell.get('isSolved').shouldEqual(true);
+
+    // Make sure revealing a flagged mine unsolves it
+    cell.set('isRevealed', true);
+    cell.get('isSolved').shouldEqual(false);
+
+  }
+
+}) ;
+
+if (window.main && (appMain = main)) main = null ;
+
+</script>
+
+<% end %>

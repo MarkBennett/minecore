@@ -4,4 +4,14 @@ As with classic mine sweeper the game starts with a map (n x m in size) made up 
 
 Cells adjacent to cells containing mines will display a count of the adjacent mines when their content is revealed.  If no mines are adjacent then they trigger the cells around them to reveal their contents.
 
-A player wins the game by revealing all of the mines.
+Players may flag a cell they believe to be a mine by right-clicking on it.  This flag must be cleared before they can reveal it's contents.
+
+A player wins the game by flagging all of the mines.
+
+
+.: A Cell :.
+contents = a mine, the number of adjacent mines (up to 8), or empty
+revealed? = are the contents of this cell visible?
+flagged? = is this cell flagged as a mine? (yes / no)
+neighbours = the set of neighbours adjacent to this cell
+exploded? = has the mine in this cell exploded?
